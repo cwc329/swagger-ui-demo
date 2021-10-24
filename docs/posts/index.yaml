@@ -1,0 +1,7 @@
+post-collections:
+  get: 
+    $ref: getPost.yaml
+  put:
+    $ref: updatePost.yaml
+  delete:
+    $ref: deletePost.yaml

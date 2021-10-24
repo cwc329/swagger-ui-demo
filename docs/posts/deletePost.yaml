@@ -1,0 +1,12 @@
+tags:
+  - posts
+summary: delete a post
+parameters:
+  - $ref: ../schemas/index.yaml#/parameters/postId
+responses:
+  '200':
+    description: ok
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/index.yaml#/responses/okResponse

@@ -1,0 +1,13 @@
+comments-collections:
+  get:
+    $ref: getComments.yaml
+  post:
+    $ref: addComment.yaml
+
+comment-collections:
+  get:
+    $ref: getComment.yaml
+  put:
+    $ref: updateComment.yaml
+  delete:
+    $ref: deleteComment.yaml

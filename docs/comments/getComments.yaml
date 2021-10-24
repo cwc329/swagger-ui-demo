@@ -1,0 +1,10 @@
+tags:
+  - comments
+summary: get a list of comments
+responses:
+  '200':
+    description: ok
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/index.yaml#/schemas/arrays/comments

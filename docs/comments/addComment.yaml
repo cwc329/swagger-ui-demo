@@ -1,0 +1,12 @@
+tags:
+  - comments
+summary: add a comment
+requestBody:
+  $ref: ../schemas/index.yaml#/requestBodies/addComment
+responses:
+  '200':
+    description: ok
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/index.yaml#/schemas/objects/comment

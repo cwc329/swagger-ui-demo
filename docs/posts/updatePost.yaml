@@ -1,0 +1,14 @@
+tags:
+  - posts
+summary: update a post
+parameters:
+  - $ref: ../schemas/index.yaml#/parameters/postId
+requestBody:
+  $ref: ../schemas/index.yaml#/requestBodies/updatePost
+responses:
+  '200':
+    description: ok
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/index.yaml#/schemas/objects/post

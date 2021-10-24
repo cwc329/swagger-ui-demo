@@ -1,0 +1,80 @@
+openapi: 3.0.3
+
+info:
+  title: GGWP workshop API
+  description: GGWP workshop api document
+  version: 4.0.0
+
+servers:
+  - url: http://localhost:5566
+    description: for local demo
+
+tags:
+  - name: "posts"
+    description: "Posts of the site"
+  - name: "comments"
+    description: "Comments of posts"
+
+paths:
+  /posts:
+    get:
+      tags:
+        - posts
+      summary: get a list of posts
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    title:
+                      type: string
+                    cotent:
+                      type: string
+                    authorId:
+                      type: integer
+    post:
+      tags:
+        - posts
+      summary: add a new post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                content:
+                  type: string
+                authorId:
+                  type: integer
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  content:
+                    type: string
+                  title:
+                    type: string
+                  authorId:
+                    type: integer
+  /posts/{postId}:
+    $ref: posts/index.yaml#/post-collections
+
+  /comments:
+    $ref: comments/index.yaml#/comments-collections
+  /comments/{commentId}:
+    $ref: comments/index.yaml#/comment-collections

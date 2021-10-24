@@ -1,0 +1,14 @@
+tags:
+  - comments
+summary: update a comment
+parameters:
+  - $ref: ../schemas/index.yaml#/parameters/commentId
+requestBody:
+  $ref: ../schemas/index.yaml#/requestBodies/updateComment
+responses:
+  '200':
+    description: ok
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/index.yaml#/schemas/objects/post

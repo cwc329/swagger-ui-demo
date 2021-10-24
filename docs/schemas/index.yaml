@@ -1,0 +1,108 @@
+parameters:
+  postId:
+    name: postId
+    in: path
+    required: true
+    schema:
+      type: integer
+      example: 1
+  commentId:
+    name: commentId
+    in: path
+    required: true
+    schema:
+      type: integer
+      example: 1
+  sort:
+    name: _sort
+    in: query
+    schema:
+      type: string
+      example: id
+  order:
+    name: _order
+    in: query
+    schema:
+      type: string
+      enums: [asc, desc]
+
+schemas:
+  objects:
+    post:
+      properties:
+        id:
+          type: integer
+          example: 1
+        title:
+          type: string
+          example: workshop
+        content:
+          type: string
+          example: "use json-server and swagger-ui-watcher"
+        authorId:
+          type: integer
+          example: 1
+    comment:
+      properties:
+        id:
+          type: integer
+          example: 1
+        body:
+          type: string
+          example: "all right"
+        postId:
+          type: integer
+          example: 1
+  arrays:
+    comments:
+      type: array
+      items:
+        $ref: "#/schemas/objects/comment"
+
+requestBodies:
+  updatePost:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            title:
+              type: string
+              example: "pipigogogo"
+            content:
+              type: string
+              example: "test update"
+            authorId:
+              type: integer
+              example: 1
+  addComment:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            body:
+              type: string
+              example: gg
+            postId:
+              type: integer
+              example: 1
+  updateComment:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            body:
+              type: string
+              example: ggwp
+            postId:
+              type: integer
+              example: 1
+responses:
+  okResponse:
+    type: object
+    properties:
+      data:
+        example: ok
+        type: string

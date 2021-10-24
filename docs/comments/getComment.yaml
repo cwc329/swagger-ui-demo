@@ -1,0 +1,12 @@
+tags:
+  - comments
+summary: get a comment
+parameters:
+  - $ref: ../schemas/index.yaml#/parameters/commentId
+responses:
+  '200':
+    description: ok
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/index.yaml#/schemas/objects/comment
